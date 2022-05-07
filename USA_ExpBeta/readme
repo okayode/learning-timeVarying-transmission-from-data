@@ -1,0 +1,26 @@
+#############################################################################################
+#  How to run the code																		#
+#############################################################################################
+
+for ((x=0; x<10;x++)); do sbatch -n 1 myJob.sh; done
+
+#############################################################################################
+#  How to generate the txt files															#
+#############################################################################################
+
+
+cat slurm-5607.out | grep -e 'days' | cut -f 2- -d ' ' > days.txt
+cat slurm-5607.out | grep -e 'cases' | cut -f 2- -d ' ' > cases.txt
+cat slurm-5607.out | grep -e 'wellness' | cut -f 2- -d ' ' > wellness.txt
+cat *.out | grep -e 'genDate' | cut -f 2- -d ' ' > genDate.txt
+cat *.out | grep -e 'susceptible' | cut -f 2- -d ' ' > susceptible.txt
+cat *.out | grep -e 'infectd' | cut -f 2- -d ' ' > infectd.txt
+cat *.out | grep -e 'INFasymp' | cut -f 2- -d ' ' > INFasymp.txt
+cat *.out | grep -e 'recoverd' | cut -f 2- -d ' ' > recoverd.txt
+cat *.out | grep -e 'RECasymp' | cut -f 2- -d ' ' > RECasymp.txt
+cat *.out | grep -e 'ExpBeta' | cut -f 2- -d ' ' > Beta.txt
+cat *.out | grep -e 'rmse_train_loss' | cut -f 2- -d ' ' > rmse_train_loss.txt
+cat *.out | grep -e 'eta:' | cut -f 2- -d ' ' > eta.txt
+cat *.out | grep -e 'gamma:' | cut -f 2- -d ' ' > gamma.txt
+cat *.out | grep -e 'mu:' | cut -f 2- -d ' ' > mu.txt
+#cat *.out | grep -e 'xi:' | cut -f 2- -d ' ' > xi.txt
